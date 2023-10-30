@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+}
+
+.grid {
+  border-collapse: collapse;
+}
+
+.cell {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+td {
+  border: 1px solid #ccc;
+  width: 50px;  
+  height: 50px;
+}
