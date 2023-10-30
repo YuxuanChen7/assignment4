@@ -5,6 +5,8 @@ function Grid() {
     //states
     //matrix variable later used to convert into grid(table element)
   const [matrix, setMatrix] = useState([[null]]);
+    //selectedColor variable with the default color of red
+  const [selectedColor, setSelectedColor] = useState("red");
 
     //functions
     //Q1
@@ -25,6 +27,11 @@ function Grid() {
     <div>
       <button id="addRow" onClick={handleAddRow}>Add a Row</button>
       <button id="addColumn" onClick={handleAddColumn}>Add a Column</button>
+      <select id="colorSelect" onChange={(e) => setSelectedColor(e.target.value)}>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+      </select>
       <table id="grid">
         <tbody>
           {matrix.map((row, rowIndex) => (
