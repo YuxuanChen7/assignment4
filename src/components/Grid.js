@@ -22,11 +22,27 @@ function Grid() {
     setMatrix(updatedMatrix);
   };
 
+  const handleDeleteRow = () => {
+    if (matrix.length > 1){
+      const updatedMatrix = matrix.slice(0, -1);
+      setMatrix(updatedMatrix);
+    }
+  };
+
+  const handleDeleteColumn = () => {
+    if (matrix[0].length > 1) {
+      const updatedMatrix = matrix.map(row => row.slice(0, -1));
+      setMatrix(updatedMatrix);
+    }
+  };
+
     //returns
   return (
     <div>
       <button id="addRow" onClick={handleAddRow}>Add a Row</button>
       <button id="addColumn" onClick={handleAddColumn}>Add a Column</button>
+      <button id="deleteRow" onClick={handleDeleteRow}>Delete a Row</button>
+      <button id="deleteColumn" onClick={handleDeleteColumn}>Delete a Column</button>
       <select id="colorSelect" onChange={(e) => setSelectedColor(e.target.value)}>
         <option value="red">Red</option>
         <option value="green">Green</option>
