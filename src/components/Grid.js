@@ -39,6 +39,13 @@ function Grid() {
     const handleChangeColor = (event) => {
       setSelectedColor(event.target.value);
     };
+    //q6
+    const handleCellClick = (rowIndex, cellIndex) => {
+
+      const newMatrix = matrix.map(row => [...row]);
+      newMatrix[rowIndex][cellIndex] = selectedColor;
+      setMatrix(newMatrix);
+    };
     //Q7
     const handleColorAllCells = () => {
         const coloredMatrix = matrix.map(row => row.map(() => selectedColor));
