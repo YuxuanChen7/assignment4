@@ -58,6 +58,12 @@ function Grid() {
         setMatrix(coloredMatrix);
     };
 
+    //Q9
+    const handleRemoveColorFromAllCells = () => {
+        const clearedMatrix = matrix.map(row => row.map(() => null));
+        setMatrix(clearedMatrix);
+  };
+
     //returns
   return (
     <div>
@@ -68,6 +74,7 @@ function Grid() {
       <button id="colorAll" onClick={handleCellClick}>Color One Cell</button>
       <button onClick={handleColorAllCells}>Color All Cells</button>
       <button onClick={handleColorUncoloredCells}>Color Uncolored Cells</button>
+      <button onClick={handleRemoveColorFromAllCells}>Remove the Color from All Cells</button>
       <select id="colorSelect" value={selectedColor} onChange={handleChangeColor}>
         <option value="red">Red</option>
         <option value="green">Green</option>
