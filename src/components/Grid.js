@@ -65,6 +65,7 @@ function Grid() {
       <button id="addColumn" onClick={handleAddColumn}>Add a Column</button>
       <button id="deleteRow" onClick={handleDeleteRow}>Delete a Row</button>
       <button id="deleteColumn" onClick={handleDeleteColumn}>Delete a Column</button>
+      <button id="colorAll" onClick={handleCellClick}>Color One Cell</button>
       <button onClick={handleColorAllCells}>Color All Cells</button>
       <button onClick={handleColorUncoloredCells}>Color Uncolored Cells</button>
       <select id="colorSelect" value={selectedColor} onChange={handleChangeColor}>
@@ -77,7 +78,9 @@ function Grid() {
           {matrix.map((row, rowIndex) => (
             <tr key={rowIndex}>
               {row.map((cell, cellIndex) => (
-                <td key={cellIndex} style={{ backgroundColor: cell }}></td>
+                <td key={cellIndex} style={{ backgroundColor: cell }}
+                onClick={() => handleCellClick(rowIndex, cellIndex)}>
+                </td>
               ))}
             </tr>
           ))}
