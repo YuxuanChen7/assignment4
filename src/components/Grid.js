@@ -36,6 +36,18 @@ function Grid() {
     }
   };
 
+    //Q7
+    const handleColorAllCells = () => {
+        const coloredMatrix = matrix.map(row => row.map(() => selectedColor));
+        setMatrix(coloredMatrix);
+    };
+
+    //Q8
+    const handleColorUncoloredCells = () => {
+        const coloredMatrix = matrix.map(row => row.map(cell => cell || selectedColor));
+        setMatrix(coloredMatrix);
+    };
+
     //returns
   return (
     <div>
@@ -43,6 +55,8 @@ function Grid() {
       <button id="addColumn" onClick={handleAddColumn}>Add a Column</button>
       <button id="deleteRow" onClick={handleDeleteRow}>Delete a Row</button>
       <button id="deleteColumn" onClick={handleDeleteColumn}>Delete a Column</button>
+      <button onClick={handleColorAllCells}>Color All Cells</button>
+      <button onClick={handleColorUncoloredCells}>Color Uncolored Cells</button>
       <select id="colorSelect" onChange={(e) => setSelectedColor(e.target.value)}>
         <option value="red">Red</option>
         <option value="green">Green</option>
@@ -53,7 +67,7 @@ function Grid() {
           {matrix.map((row, rowIndex) => (
             <tr key={rowIndex}>
               {row.map((cell, cellIndex) => (
-                <td key={cellIndex}></td>
+                <td key={cellIndex} style={{ backgroundColor: cell }}></td>
               ))}
             </tr>
           ))}
