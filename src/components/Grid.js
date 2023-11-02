@@ -35,7 +35,10 @@ function Grid() {
       setMatrix(updatedMatrix);
     }
   };
-
+    //q5
+    const handleChangeColor = (event) => {
+      setSelectedColor(event.target.value);
+    };
     //Q7
     const handleColorAllCells = () => {
         const coloredMatrix = matrix.map(row => row.map(() => selectedColor));
@@ -57,7 +60,7 @@ function Grid() {
       <button id="deleteColumn" onClick={handleDeleteColumn}>Delete a Column</button>
       <button onClick={handleColorAllCells}>Color All Cells</button>
       <button onClick={handleColorUncoloredCells}>Color Uncolored Cells</button>
-      <select id="colorSelect" onChange={(e) => setSelectedColor(e.target.value)}>
+      <select id="colorSelect" value={selectedColor} onChange={handleChangeColor}>
         <option value="red">Red</option>
         <option value="green">Green</option>
         <option value="blue">Blue</option>
